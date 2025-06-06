@@ -1,5 +1,5 @@
 import streamlit as st
-from scripts.load_data import load_data
+from scripts.data_loader import load_data
 from scripts.data_processor import melt_data, plot_temporal_trends, plot_geographical_distribution, plot_summary_metrics
 
 # Charger les données
