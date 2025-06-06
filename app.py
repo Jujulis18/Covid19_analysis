@@ -1,6 +1,6 @@
 import streamlit as st
 from scripts.data_loader import load_data
-from scripts.data_processor import melt_data, process_data
+from scripts.data_processor import melt_data, process_data, plot_temporal_trends
 
 # Charger les données
 confirmed, deaths, recovered = load_data()
@@ -22,7 +22,7 @@ confirmed_filtered, deaths_filtered, recovered_filtered = process_data(
 
 # Graphique des tendances temporelles
 st.header("Temporal Trends of Confirmed Cases")
-fig_trends = process_data.plot_temporal_trends(confirmed_filtered, selected_countries)
+fig_trends = plot_temporal_trends(confirmed_filtered, selected_countries)
 st.pyplot(fig_trends)
 
 # Carte choroplèthe interactive
