@@ -33,7 +33,7 @@ with col2:
     fig_trends = plot_temporal_trends(confirmed_filtered, selected_countries)
     st.pyplot(fig_trends)
 
- # Carte choroplèthe interactive
-st.header("Geographical Distribution")
-fig_choropleth = plot_geographical_distribution(confirmed)
-st.plotly_chart(fig_choropleth, use_container_width=True)
+	 # Carte choroplèthe interactive
+	st.header("Geographical Distribution")
+	fig_choropleth = plot_geographical_distribution(confirmed)
+	st.plotly_chart(fig_choropleth, use_container_width=True)
