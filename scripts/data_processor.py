@@ -84,4 +84,4 @@ def plot_new_cases_analysis(data, selected_countries):
         ax.set_title("Daily New Cases")
         ax.set_xlabel("Date")
         ax.set_ylabel("Number of New Cases")
-        st.pyplot(fig)
+    return fig

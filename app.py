@@ -41,4 +41,5 @@ display_summary_statistics(confirmed, deaths, recovered, selected_countries)
 
 # Analyse des nouveaux cas
 st.header("New Cases Analysis")
-plot_new_cases_analysis(confirmed_filtered, selected_countries)
+fig_new_cases = plot_new_cases_analysis(confirmed_filtered, selected_countries)
+st.pyplot(fig_new_cases)
