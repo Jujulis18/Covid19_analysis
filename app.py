@@ -1,6 +1,6 @@
 import streamlit as st
 from scripts.data_loader import load_data
-from scripts.data_processor import melt_data, process_data, plot_temporal_trends
+from scripts.data_processor import melt_data, process_data, plot_temporal_trends, plot_geographical_distribution, plot_comparison, display_summary_statistics, plot_new_cases_analysis
 
 # Charger les données
 confirmed, deaths, recovered = load_data()
