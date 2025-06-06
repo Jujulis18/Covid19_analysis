@@ -1,6 +1,6 @@
 import streamlit as st
-from scripts.data_loader import load_data
-from scripts.data_processor import melt_data, process_data, plot_temporal_trends, plot_geographical_distribution, plot_comparison, display_summary_statistics, plot_new_cases_analysis
+from scripts.load_data import load_data
+from scripts.data_processor import melt_data, plot_temporal_trends, plot_geographical_distribution, plot_summary_metrics
 
 # Charger les données
 confirmed, deaths, recovered = load_data()
@@ -15,32 +15,24 @@ st.title("COVID-19 Data Analysis")
 countries = confirmed["Country/Region"].unique()
 selected_countries = st.multiselect("Select Countries", countries, default=["France", "Italy", "Germany"])
 
-# Filtrer et traiter les données pour les pays sélectionnés
-confirmed_filtered, deaths_filtered, recovered_filtered = process_data(
-    confirmed_melted, deaths_melted, recovered_melted, selected_countries
-)
+# Filtrer les données pour les pays sélectionnés
+confirmed_filtered = confirmed_melted[confirmed_melted["Country/Region"].isin(selected_countries)]
 
-# Graphique des tendances temporelles
-st.header("Temporal Trends of Confirmed Cases")
-fig_trends = plot_temporal_trends(confirmed_filtered, selected_countries)
-st.pyplot(fig_trends)
+# Mise en page avec colonnes
+col1, col2 = st.columns(2)
 
-# Carte choroplèthe interactive
-st.header("Geographical Distribution of Confirmed Cases")
-fig_map = plot_geographical_distribution(confirmed)
-st.plotly_chart(fig_map)
+with col1:
+    # Carte choroplèthe interactive
+    st.header("Geographical Distribution")
+    fig_choropleth = plot_geographical_distribution(confirmed)
+    st.plotly_chart(fig_choropleth, use_container_width=True)
 
-# Comparaison des données
-st.header("Data Comparison")
-fig_comparison = plot_comparison(confirmed, deaths, recovered, selected_countries)
-st.plotly_chart(fig_comparison)
+with col2:
+    # Graphique des tendances temporelles
+    st.header("Temporal Trends of Confirmed Cases")
+    fig_trends = plot_temporal_trends(confirmed_filtered, selected_countries)
+    st.pyplot(fig_trends)
 
-# Statistiques résumées
+# Statistiques résumées sous forme de métriques ou de jauges
 st.header("Summary Statistics")
-display_summary_statistics(confirmed, deaths, recovered, selected_countries)
-
-
-# Analyse des nouveaux cas
-st.header("New Cases Analysis")
-fig_new_cases = plot_new_cases_analysis(confirmed_filtered, selected_countries)
-st.pyplot(fig_new_cases)
+plot_summary_metrics(confirmed, deaths, recovered, selected_countries)
