@@ -22,10 +22,10 @@ confirmed_filtered = confirmed_melted[confirmed_melted["Country/Region"].isin(se
 col1, col2 = st.columns(2)
 
 with col1:
-    # Carte choroplèthe interactive
-    st.header("Geographical Distribution")
-    fig_choropleth = plot_geographical_distribution(confirmed)
-    st.plotly_chart(fig_choropleth, use_container_width=True)
+	# Statistiques résumées sous forme de métriques ou de jauges
+	st.header("Summary Statistics")
+	plot_summary_metrics(confirmed, deaths, recovered, selected_countries)
+   
 
 with col2:
     # Graphique des tendances temporelles
@@ -33,6 +33,7 @@ with col2:
     fig_trends = plot_temporal_trends(confirmed_filtered, selected_countries)
     st.pyplot(fig_trends)
 
-# Statistiques résumées sous forme de métriques ou de jauges
-st.header("Summary Statistics")
-plot_summary_metrics(confirmed, deaths, recovered, selected_countries)
+ # Carte choroplèthe interactive
+st.header("Geographical Distribution")
+fig_choropleth = plot_geographical_distribution(confirmed)
+st.plotly_chart(fig_choropleth, use_container_width=True)
