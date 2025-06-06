@@ -63,7 +63,6 @@ def display_summary_statistics(confirmed, deaths, recovered, selected_countries)
         confirmed_count = confirmed[confirmed["Country/Region"] == country].iloc[:, -1].sum()
         deaths_count = deaths[deaths["Country/Region"] == country].iloc[:, -1].sum()
         recovered_count = recovered[recovered["Country/Region"] == country].iloc[:, -1].sum()
-
         st.subheader(country)
         st.write(f"Total Confirmed Cases: {confirmed_count}")
         st.write(f"Total Deaths: {deaths_count}")
