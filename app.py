@@ -37,7 +37,17 @@ st.plotly_chart(fig_comparison)
 
 # Statistiques résumées
 st.header("Summary Statistics")
-display_summary_statistics(confirmed, deaths, recovered, selected_countries)
+confirmed_count, deaths_count, recovered_count = display_summary_statistics(confirmed, deaths, recovered, selected_countries)
+st.subheader(country)
+st.write(f"Total Confirmed Cases: {confirmed_count}")
+st.write(f"Total Deaths: {deaths_count}")
+st.write(f"Total Recovered: {recovered_count}")
+if deaths_count > 0:
+    mortality_rate = (deaths_count / confirmed_count) * 100
+    st.write(f"Mortality Rate: {mortality_rate:.2f}%")
+if recovered_count > 0:
+    recovery_rate = (recovered_count / confirmed_count) * 100
+    st.write(f"Recovery Rate: {recovery_rate:.2f}%")
 
 # Analyse des nouveaux cas
 st.header("New Cases Analysis")

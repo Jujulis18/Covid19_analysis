@@ -63,16 +63,7 @@ def display_summary_statistics(confirmed, deaths, recovered, selected_countries)
         deaths_count = deaths[deaths["Country/Region"] == country].iloc[:, -1].sum()
         recovered_count = recovered[recovered["Country/Region"] == country].iloc[:, -1].sum()
 
-        st.subheader(country)
-        st.write(f"Total Confirmed Cases: {confirmed_count}")
-        st.write(f"Total Deaths: {deaths_count}")
-        st.write(f"Total Recovered: {recovered_count}")
-        if deaths_count > 0:
-            mortality_rate = (deaths_count / confirmed_count) * 100
-            st.write(f"Mortality Rate: {mortality_rate:.2f}%")
-        if recovered_count > 0:
-            recovery_rate = (recovered_count / confirmed_count) * 100
-            st.write(f"Recovery Rate: {recovery_rate:.2f}%")
+    return confirmed_count, deaths_count, recovered_count
 
 def plot_new_cases_analysis(data, selected_countries):
     for country in selected_countries:
