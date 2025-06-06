@@ -27,18 +27,18 @@ st.pyplot(fig_trends)
 
 # Carte choroplèthe interactive
 st.header("Geographical Distribution of Confirmed Cases")
-fig_map = process_data.plot_geographical_distribution(confirmed)
+fig_map = plot_geographical_distribution(confirmed)
 st.plotly_chart(fig_map)
 
 # Comparaison des données
 st.header("Data Comparison")
-fig_comparison = process_data.plot_comparison(confirmed, deaths, recovered, selected_countries)
+fig_comparison = plot_comparison(confirmed, deaths, recovered, selected_countries)
 st.plotly_chart(fig_comparison)
 
 # Statistiques résumées
 st.header("Summary Statistics")
-process_data.display_summary_statistics(confirmed, deaths, recovered, selected_countries)
+display_summary_statistics(confirmed, deaths, recovered, selected_countries)
 
 # Analyse des nouveaux cas
 st.header("New Cases Analysis")
-process_data.plot_new_cases_analysis(confirmed_filtered, selected_countries)
+plot_new_cases_analysis(confirmed_filtered, selected_countries)
