@@ -32,7 +32,6 @@ with col2:
     st.header("Temporal Trends of Confirmed Cases")
     fig_trends = plot_temporal_trends(confirmed_filtered, selected_countries)
     st.pyplot(fig_trends)
-
 	# Carte choroplèthe interactive
 	st.header("Geographical Distribution")
 	fig_choropleth = plot_geographical_distribution(confirmed)
