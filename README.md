@@ -31,6 +31,7 @@ Pour réaliser ce projet, j'ai suivi les étapes suivantes :
 - Pandas : Manipulation et analyse des données
 - Plotly, Matplotlib : Visualisation des données
 - Streamlit : Interface utilisateur web [Streamlit Dashboard](https://hzrhzpkmdekqmy32ygbi4v.streamlit.app/)
+<img width="1761" height="813" alt="image" src="https://github.com/user-attachments/assets/4e310a52-53a8-4fb1-8adc-a53fc46a0f7a" />
 
 
 ## Analyse et Résultats
@@ -77,4 +78,4 @@ streamlit run app.py
 ## Références et Liens
 
 - **Sources de données** :
-  - [COVID-19 Dataset raw]("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
+  - [COVID-19 Dataset raw](https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv)
