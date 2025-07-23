@@ -8,6 +8,8 @@ confirmed, deaths, recovered = load_data()
 # Transformer les données pour l'analyse temporelle
 confirmed_melted, deaths_melted, recovered_melted = melt_data(confirmed, deaths, recovered)
 
+st.set_page_config(layout="wide")
+
 # Interface Streamlit
 st.title("COVID-19 Data Analysis")
 
